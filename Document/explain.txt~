@@ -1,0 +1,49 @@
+Linnux操作系统
+
+1. 文件系统结构
+    文件系统将磁盘空间划分为每1024个字节（1KB）一组，称为块
+    四部分：引导块，超级块，磁盘索引i节点表区（32KB或64KB，每项32B），磁盘信息区(目录块和数据块)
+	struct block {
+		char data[1024];
+	}
+2. 超级块
+	i节点块数，空闲i节点块数，空闲i结点栈（数组）
+	数据块块数，空闲数据块块数，磁盘空闲块栈（数组）
+	超级快修改标志
+	struct superBlock {
+		int iNodeTotalNum;
+		int iNodeFreeNum;                
+		int iNodeFreeStack[  ];
+		int dataBlockTotalNum;
+		int dataBlockFreeNum;
+		int dataBlockFreeStack[];
+		int superBlockFlag;
+	}
+3. 目录
+    是一个文件，文件中含有一个目录表
+	SFD:符号文件项，文件名+i节点号(每项16B)
+	BFD:基本文件项，文件说明信息+i节点号
+	
+    目录项：文件名+文件对应的i节点号
+	struct directory {
+		directoryItem Item[];
+	}
+	struct directoryItem {
+		char name[];
+		int inode;
+	}
+4. i节点表
+	就是BFD
+	磁盘i节点项：i节点号，包含文件数，文件大小,文件所有者及文件存取权限,文件为普通文件或目录文件，磁盘地址表【混合索引结构】
+	struct iNode {
+		int num;
+		int fileCount;
+		int size;
+		int fileMode;  //文件类型
+		int userId;
+		int userRight;
+		int addr[];
+	}
+
+
+	

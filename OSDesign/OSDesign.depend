@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1468152069 source:/home/sujinming/Documents/OSDesign/main.c
+	<string.h>
+	<stdio.h>
+	"FILESYSTEM.H"
+
+1468152102 /home/sujinming/Documents/OSDesign/FILESYSTEM.H
+	<stdio.h>
+	"login.c"
+
+1468150371 /home/sujinming/Documents/OSDesign/exec.c
+	<stdio.h>
+
+1467794041 /home/sujinming/Documents/OSDesign/login.h
+	<stdio.h>
+	"FILESYSTEM.H"
+
+1467795292 /home/sujinming/Documents/OSDesign/format.h
+	<stdio.h>
+	"FILESYSTEM.H"
+
+1468150374 /home/sujinming/Documents/OSDesign/format.c
+	<stdio.h>
+
+1468152082 /home/sujinming/Documents/OSDesign/login.c
+	<stdio.h>
+
